@@ -1,0 +1,118 @@
+\documentclass[12pt, letterpaper]{article}
+\usepackage{graphicx} % Required for inserting images
+
+\title{Senior Design Manual}
+\author{Bennett Petzold, Holly Grant, Hunter Marlette, Patrick Burke}
+\date{Version 0.1 - April 2023}
+
+% Formatting
+\usepackage[left=0.5in, right=0.5in, top=1in, bottom=1in, letterpaper]{geometry}
+\usepackage{kpfonts} % https://r2src.github.io/top10fonts/
+\usepackage{microtype} % Makes the formatting look nicer
+\usepackage{graphicx} % Graphics: https://www.overleaf.com/learn/latex/Inserting_Images
+\graphicspath{{./graphics}}
+\usepackage{caption} % Image captions
+\usepackage{indentfirst} % Indent the first paragraph of a section
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage[indent]{parskip}
+
+% Utility
+\usepackage{hyperref} % Hyperlinks
+\usepackage[nameinlink]{cleveref} % Improved refs
+\crefformat{figure}{[#2fig. #1#3]}
+\usepackage{changepage} % Text body indent adjustment
+\usepackage{enotez} % Footnotes at end of document
+\setenotez{list-name=, backref=true}
+\usepackage{minted} % Code formatting
+\setmintedinline{breaklines}
+
+\usepackage{xcolor} % used to highlight text
+\usepackage{soul} % used for \hl{} command 
+
+\usepackage{caption}
+\usepackage{subcaption}
+
+%\usepackage{enumerate}
+%\usepackage{enumitem}
+%\usepackage[english]{babel}
+
+% Hyperref setup
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=red,
+    pdftitle={Overleaf Example},
+    pdfpagemode=FullScreen
+}
+
+% Combine href with a footnote link
+\newcommand\lref[2]{
+    \href{#1}{#2}%
+    \endnote{\href{#1}{#1}}%
+}
+
+% Environment with subsubsection and its contents indented
+% Need this fix... don't ask me why: https://tex.stackexchange.com/a/65865
+\newcommand{\subsub}[1]{ {\begin{adjustwidth}{3em}{0pt} \nointerlineskip\leavevmode \subsubsection{#1} \end{adjustwidth}} }
+\newenvironment{subsubsec}[1]{\begin{adjustwidth}{2cm}{} \nointerlineskip\leavevmode \subsubsection{#1}}{\end{adjustwidth}}
+% Adjusting table of contents indenting
+%\usepackage{titletoc,tocloft}
+%\setlength{\cftsubsecindent}{1cm} % Subsection indent
+%\setlength{\cftsubsubsecindent}{2cm} % Subsubsection indent
+
+% Misc. shorthands
+\newcommand{\bashline}[1]{\textbf{\mintinline{bash}{#1}}}
+
+\begin{document}
+
+\maketitle
+
+%\hl{\textbf{NOTE: }Highlighted text like this note means that there is something that needs to be edited, replaced, or added at this section and should is not finalized!}
+
+\tableofcontents{}
+\pagebreak{}
+
+\section{Introduction}
+\input{sections/introduction}
+
+\section{Bill of Materials}
+\input{sections/bom}
+
+\section{Raspberry Pi Setup}
+\input{sections/pi\_setup}
+
+\section{Printed Circuit Board Manufacturing}
+\input{sections/pcb\_manufacturing}
+
+\section{Enclosure}
+\input{sections/enclosure}
+
+\section{Relay Controller}
+\label{sec: relay-controller}
+\input{sections/relay}
+
+\pagebreak{}
+\section{Final Assembly}
+\label{sec: final-assembly}
+\input{sections/assembly}
+
+\pagebreak{}
+\section{Database}
+\input{sections/database}
+
+\section{API}
+\input{sections/api}
+
+\section{Admin Website}
+\input{sections/admin_website}
+
+\section{Troubleshooting/Debugging}
+\input{sections/troubleshoot}
+
+\section{External Links}
+\input{sections/other}
+
+\end{document}

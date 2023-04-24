@@ -1,0 +1,47 @@
+\subsection{Implementation}
+The API is built using \lref{https://laravel.com/}{Laravel}.
+The development version is an image inside a docker-compose project,
+    referencing a database container.
+For deployment, the contents of \bashline{laravel_api/html} in the WebInterface repository can be copied to the target server.
+
+\subsection{Authentication}
+The API is meant exclusively for MakerSpace control unit access.
+Units give their MAC address in a ``HTTP\_MAC'' header,
+    and are only allowed to read and modify resources directly assigned to themselves.
+Any unit not assigned to a MakerSpace device inside the database will not be given access.
+If a machine's MAC address is compromised,
+    the API access can be revoked by removing the MAC address from device assignments.
+
+\subsection{GET Requests}
+\begin{itemize}
+    \item config
+    \begin{itemize}
+        \item Returns: JSON object of configuration settings
+        \item Side effect: Logs that the device is alive
+    \end{itemize}
+\end{itemize}
+\begin{itemize}
+    \item auth\_user
+    \begin{itemize}
+        \item Input: JSON array of user IDs
+        \item Returns: Boolean true or false for set of valid users
+        \item Side effect: logs authentication request
+    \end{itemize}
+\end{itemize}
+\begin{itemize}
+    \item user\_admin
+    \begin{itemize}
+        \item Input: JSON array of user IDs
+        \item Returns: Boolean true or false for set of admin users
+        \item Side effect: logs authentication request
+    \end{itemize}
+\end{itemize}
+
+\subsection{POST Requests}
+\begin{itemize}
+    \item log
+    \begin{itemize}
+        \item Input: JSON array of events
+        \item Effect: adds given events to the controller's log
+    \end{itemize}
+\end{itemize}

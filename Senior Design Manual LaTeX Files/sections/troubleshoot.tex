@@ -1,0 +1,55 @@
+\subsection{Boot Issues}
+\begin{itemize}
+    \item System takes a long time to boot
+    \begin{itemize}
+        \item Check that the SD card and power connector are properly seated.
+        \item Check if the SD card has a slow read speed -- replace if so.
+    \end{itemize}
+    \item Error in Raspberry Pi boot process
+    \begin{itemize}
+        \item Check if the SD card is corrupted. Replace if it is.
+        \item Flash SD card with a known working image.
+    \end{itemize}
+    \item System does not display UI fullscreen
+    \begin{itemize}
+        \item Change the sleep time in i3-config (inside the build directory) to be longer and re-flash
+    \end{itemize}
+\end{itemize}
+
+\subsection{Communication Issues}
+\begin{itemize}
+    \item System does not connect to USB/Ethernet/etc.
+    \begin{itemize}
+        \item Re-seat all internal connectors.
+        \item Verify cords are fully functional.
+        \item Replace the Raspberry Pi.
+    \end{itemize}
+    \item System is not communicating with API.
+    \begin{itemize}
+        \item Check the system network connection.
+        \item SSH into the system and run \bashline{getmac} to confirm the address was properly copied.
+        \item Check for rejected communications in the admin interface, replace any incorrectly entered MAC address.
+    \end{itemize}
+    \item Admin Interface is not communicating with database.
+    \begin{itemize}
+        \item Check if the database is live.
+        \item Log into the database and check for rejected connections.
+        \item Update database user certifications.
+    \end{itemize}
+\end{itemize}
+
+\subsection{Image Issues}
+\begin{itemize}
+    \item Image needs superuser permission to build/update/flash.
+    \begin{itemize}
+        \item Use a system where you have superuser access.
+    \end{itemize}
+    \item Image is corrupted on SD card.
+    \begin{itemize}
+        \item Mount the SD card data partition and run \bashline{fsck -fy FILESYSTEM}
+        \item Decompress the latest image, loopback mount the data partition, and run \bashline{fsck -fy FILESYSTEM}
+        \item If the image has no issues, but the SD card is corrupted after writing it again, discard the SD card.
+        \item If the image has issues, go to an older image and check it. If it works, update the older image and reflash.
+        \item If no older issues work, rebuild an image from scratch.
+    \end{itemize}
+\end{itemize}

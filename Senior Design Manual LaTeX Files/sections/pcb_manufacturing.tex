@@ -1,0 +1,201 @@
+\subsection{Ordering the Design Files}
+\begin{subsubsec}{Accessing PCB documents}
+
+The PCB files were created using Autodesk Fusion 360. As of writing this document, April 2023, Fusion 360 has their own version control software called Fusion Teams.The folder entitled "Senior Design 13 - Makerspace Access Control" Contains all versions of the Circuit Board Designs and has been shared with the following: 
+\vspace{1em}
+
+    \begin{center}
+        \setlength{\tabcolsep}{24pt} % Set separation size between columns
+        \begin{tabular}{l l l}
+            Name & Email & Role\\
+            \toprule
+            Hunter Marlette & hemarlet@ncsu.edu & Administrator (Owner)\\
+            Patrick Burke & pjburke@ncsu.edu & Editor\\
+            Bennett Petzold & bjpetzol@ncsu.edu & Reader\\
+            Holly Grant & hmgrant@ncsu.edu & Reader\\ 
+            \\
+            Dzung Nguyen & dhnguye2@ncsu.edu & Editor\\
+            Dan Green & djgreen@ncsu.edu & Reader\\
+            Rachana Gupta & ragupta@ncsu.edu & Reader\\
+            Jeremy Edmondson & jedmond2@ncsu.edu & Reader\\      
+        \end{tabular}
+    \end{center}
+
+\vspace{2em}
+\noindent{The role permissions are as follows:}
+\vspace{1em}
+
+    \begin{center}
+        \setlength{\tabcolsep}{24pt} % Set separation size between columns
+        \begin{tabular}{l l}
+            Role & Permissions\\
+            \toprule
+            Viewer & View online, Post and read comments\\
+            Reader & Viewer + open with desktop, download, copy and paste\\ 
+            Editor & Reader + edit, upload, rename, move, delete, and share\\
+            Manager & Editor + manage members and set access levels\\
+            Administrator & Manager + Permanently delete\\
+        \end{tabular}
+    \end{center}
+    
+\vspace{2em}
+
+The PCB Documents are also located in the \lref{https://github.ncsu.edu/MakerSpaceControl/Hardware-Design}{Hardware-Design} section of the GitHub Repository as well as in the \lref{https://drive.google.com/drive/folders/1XmkZzzdNFWirSOfwTD2oHMQbwkMx24IF}{Hardware Files} folder on the Google Drive. Both of these locations are shared with all of the above-mentioned users and associated email addresses. 
+\vspace{1em}
+
+\end{subsubsec}
+
+
+
+
+
+\begin{subsubsec}{Exporting the PCBs from Fusion 360 for manufacturing}
+
+There are four options for retrieving the files for printing the PCBs: using FUSION TEAMS online, using the Fusion 360 Desktop Application,retrieving the files from GitHub, and retrieving the already exported zip file from Google Drive. BY FAR the easiest way is to go to the Google Drive and getting the files already exported and zipped ready for use! They have all been listed below in case there is a reason one method is needed above the other. The first two options are the most complex, but will also be absolutely necessary for updating this design in the future using Fusion360 or if you need to export them in a different file format for use with a different manufacturer. \\
+\vspace{1em}
+
+\noindent{\underline{Option One: Open files from Fusion online}}
+
+\noindent{NOTE: }
+
+You are expected to have a Fusion 360 account that has one of the permissions listed above in order to have access to this method. You are also expected to have downloaded the desktop application of Fusion 360 in order for the following steps to work. Please see \lref{https://www.autodesk.com/support/technical/article/caas/sfdcarticles/sfdcarticles/How-does-Fusion-360-get-installed.html}{Autodesk's Website} for more details. 
+
+\begin{enumerate}   % list of steps
+    \item Open FUSION TEAM and access the project folder.
+    %\Item[NOTE] print note here...
+    % I cannot figure out how to get this \item[NOTE] format to work
+    % I may have to be in a "\texttt{enumerate} environment"
+    % but I am also not entirely sure how environments work here so I am going to stick with what I know works well
+    \item There are 6 folders within this directory. The only one necessary for reproducing this product is the last folder entitled "V6 - Consolidation". Open that folder and inside you will find two folders, one for each circuit board that must be manufactured for the system to function properly. \\
+    
+    \noindent{\textbf{NOTE: }If you wish to make changes to the design, please create a new folder in this directory or export the files to a separate project. Do  not make changes to the existing finalized designs after May 2023 as they have been finalized by the team and reflect student work up to that date.}
+    \item Open the folder corresponding to which board you are trying to export. Inside each folder you will find four files. One is the schematic file, one is the PCB document, one is the 3D CAD rendering, and one is the project header file that links the other three files together.
+    \item To open the whole project in the Fusion 360 desktop application, select the project header file in the online viewer. If there is any confusion over the labeling of the files, here is a description of the icons:
+    \begin{itemize}
+        \item[-] The schematic file, entitled "[name]\_circuit", is a green rectangle with the schematic symbol for a light emitting diode inside the rectangle with a light grey background.
+        \item[-]The PCB Design file looks almost like an Arduino, as it is supposed to most closely resemble how the PCB would look when printed. It in a solid dark green rectangle with one of the corners cut off and some smaller shapes on top resembling components. 
+        \item[-] The 3D render is simply an orange cube.
+        \item[-] The Header file that you are going to want to access looks like you took the image for the schematic and placed it on top of the image of the PCB at a slight offset. 
+        \\\\
+        %\hl{I should figure out how to insert images of the different icons either in place of or in addition to the descriptions here}
+    \end{itemize}
+    \item There should be a button in the top right corner of the window that reads "Open in Desktop"
+    \item After this opens in your desktop application, you should see four windows: a schematic in the top left, a PCB in the top right, and a top and bottom view of the 3D render on the bottom. There should also be a drop down menu on the left hand side with the name of the board you have opened. Click the triangle to expand that view and click on the PCB Design file as mentioned previously. 
+    \begin{itemize}
+        \item[-] Alternately, if you see there is multiple tabs already opened, you can more easily click the PCB Design file there as well. 
+    \end{itemize}
+    \item In the top menu click on "Manufacturing".
+    \item Find and open "CAM Processor" from the menu.
+    \item Check the box labeled "Export as ZIP" at the top of this window. 
+    \item Disable extra silkscreening on the Main PCB:
+    \begin{itemize}
+        \item[-] Select "Silkscreen Top" from the list on the left hand side of the processor. 
+        \item[-] Click the "edit layers" icon that looks like three sheets of paper stacked on top of each other. 
+        \item[-] Deselect "tplace" and hit "OK".
+        \item[-] Select "Silkscreen Bottom" from the list on the left hand side of the processor. 
+        \item[-] Click the "edit layers" icon.
+        \item[-] Deselect "bplace" and hit "OK".
+    \end{itemize}
+    
+    \item Disable extra silkscreening on the Auxiliary PCB:
+    \begin{itemize}
+        \item[-] Select "Silkscreen Top" from the list on the left hand side of the processor. 
+        \item[-] Click the "edit layers" icon that looks like three sheets of paper stacked on top of each other. 
+        \item[-] Deselect "tdocu" and hit "OK".
+        \item[-] Select "Silkscreen Bottom" from the list on the left hand side of the processor. 
+        \item[-] Click the "edit layers" icon.
+        \item[-] Deselect "bdocu" and hit "OK".
+    \end{itemize}
+    NOTE: The extra steps above to disable the top and bottom placement silkscreen layers does not affect the performance of the board whatsoever and is purely cosmetic. Feel free to skip these steps if you wish. 
+    \item Click "Process Job". Select the destination you wish to save the zip file and click "Save". 
+\end{enumerate}
+
+
+\vspace{1em}
+\noindent{\underline{Option Two: Open files from Fusion Desktop App}}
+
+%\hl{GET PATRICK TO VERIFY THAT THESE INSTRUCTIONS ALSO WORK FOR WINDOWS USERS!!!}\\
+%\noindent{Note: }
+
+%You are expected to have a Fusion 360 account that has one of the permissions listed above in order to have access to this method. You are also expected to have downloaded the desktop application of Fusion 360 in order for the following steps to work. Please see \lref{https://www.autodesk.com/support/technical/article/caas/sfdcarticles/sfdcarticles/How-does-Fusion-360-get-installed.html}{Autodesk's Website} for more details. 
+
+\begin{enumerate}   % list of steps
+    \item Open Fusion 360 Desktop Application.
+    \item Click the icon in the top left of your window that looks like 9 squares arranged in a 3x3 grid.
+    \item Make sure that "Hunter's Team" is selected from the drop down menu in the top left. 
+    \item This should open your library/team window that allows you to see all of the folders mentioned in option 1. Locate the correct folder and open the board files just like option 1. 
+    \item Once opened, follow steps 7-12 exactly the same as option 1 to export your ZIP file correctly.
+\end{enumerate}
+
+\vspace{1em}
+\noindent{\underline{Option Three: Open files from Google Drive}}
+\begin{enumerate}
+    \item Open the \lref{https://drive.google.com/drive/u/0/folders/16LREA6uZIBmt0r77SXmVdAlndRQpoMT1}{Senior Design Google Drive}
+    \item Navigate to "home/Hardware Files/Final PCB Revisions/PCB Rev7" and locate the two ZIP files for each on the PCBs
+    \begin{itemize}
+        \item[-] You may also skip directly to the PCB Folder in the google drive \lref{https://drive.google.com/drive/folders/1qATTFgdaTWc2hBvAnFWY5WV3vpXczItH?usp=share_link}{here}.
+    \end{itemize}
+    \item Download the necessary files to your computer to send to the manufacturer. 
+\end{enumerate}
+
+\vspace{1em}
+\noindent{\underline{Option Four: Open files from GitHub Repository}}
+\begin{enumerate}
+    \item Open the \lref{https://github.ncsu.edu/MakerSpaceControl/Hardware-Design}{Hardware-Design folder of the GitHub repository}
+    \item Download the necessary files to your computer to send to the manufacturer.
+    \begin{itemize}
+        \item[-] You may view the  \lref{https://github.ncsu.edu/MakerSpaceControl/Hardware-Design/blob/main/README.md}{README.md} file to navigate the repository.
+    \end{itemize}
+\end{enumerate}
+
+
+
+%\vspace{1em}
+%\noindent{\textbf{NOTE: }}
+
+%If you wish to make changes to the design, please create a new folder in this directory or export the files to a separate project. Do  not make changes to the existing finalized designs after May 2023 as they have been finalized by the team and reflect student work up to that date. 
+\end{subsubsec}
+
+
+
+
+
+
+
+%\begin{subsubsec}{Ordering the PCBs}
+%\hl{PATRICK NEEDS TO FILL IN THIS SECTION OF THE DOCUMENT AS HE WAS THE ONE USING JLCPCB.COM}
+%\end{subsubsec}
+%\vspace{1em}
+
+
+
+
+
+
+\subsection{Assembling Components onto the PCB}
+
+\textbf{IMPORTANT: }If you are assembling Revision 5 of the main PCB instead of Revision 6 (as printed on the front of the main PCB), you will need to connect pins 2 and 3 on OPTO 3. These are the middle left and bottom left pins when looking at the top of the board. You can simple bridge the pins with solder or use a 0$\Omega$ resistor to make the soldering easier. This has been fixed on the latest Fusion document file so if you have ordered new PCBs this will not be an issue. 
+
+\textbf{OPTIONAL: }The Green LED on the top of each section of LEDs can have it's corresponding resistor replaced with a lower value to make it brighter. There is 4.7 $\Omega$ resistors included in the assembly kit for this reason. This value most closely approximates the same brightness across all of the LEDs. 
+
+\begin{subsubsec}{Main PCB}
+\begin{enumerate}
+    \item Firstly, locate the stencil for all of the surface mount components. 
+    \item Align the stencil with the traces on the circuit board and secure both in place.
+    \item Using a squeegee, apply solder paste across the stencil making sure each trace is adequately covered. 
+    \item Place all surface mount components in their corresponding locations. You may use the labels silk-screened onto the PCB as a guide but it is advisable to reference the Fusion file to make sure all components are installed correctly.
+    \item Set the reflow oven to Wave 3 (for the solder paste and reflow oven being used in the NCSU MakerSpace as of April 2023) This may change if a different reflow oven is being used, so figure out what temperature curve works with the solder paste and oven you are using currently.
+    \item Allow the reflow oven to run a complete cycle and let the board cool before proceeding to soldering the through-hole components. 
+    NOTE: At this point I would Recommend using a bench power supply to test that the surface mount LEDs and resistors are soldered in the correct locations and orientations. 
+    \item Next solder each of the through hole components with a soldering iron and ensure for a secure connection. 
+    \item Once all components are soldered onto the board, use a bench power supply and oscilloscope to test your connections. The USB Multiplexer may have to be connected to a Raspberry Pi to be able to be tested effectively.
+\end{enumerate}
+\end{subsubsec}
+
+
+\begin{subsubsec}{Auxiliary PCB}
+\begin{enumerate}
+    \item Repeat the same steps for the main board here except there are no extremely small surface-mount components besides the LEDs and resistors which can be easily reflowed without a stencil. 
+    \item Once all components are soldered onto the board, use a bench power supply and multi-meter to test your connections. This boars is very easy to test with just a power supply and multi-meter and does not necessarily require a connection to the Raspberry Pi to confirm functionality. 
+\end{enumerate}
+\end{subsubsec}

@@ -1,0 +1,100 @@
+\newenvironment{databaseTable}
+    { \begin{table}[H]
+        \centering 
+        \setlength{\tabcolsep}{8pt}
+        \renewcommand{\arraystretch}{1.5} }
+    { \end{table} }
+
+\subsection{Implementation}
+The databases are constructed using \lref{https://mariadb.org/}{MariaDB}.
+The development version is constructed as a series of setup statements,
+    collated from the \bashline{database} directory into \bashline{database_creation.sql} when \bashline{make} is run for the WebInterface respository.
+These setup statements are run inside a docker compose project,
+    using the docker image for MariaDB version 10.9.4.
+
+\subsection{Databases and Access Control}
+There are three databases, cross-referenced in views, to clearly define access rules.
+
+\begin{databaseTable}
+    \setlength{\tabcolsep}{24pt}
+    \caption{Database Users}
+    \label{table: database_users}
+    \begin{tabular}{l l}
+        \toprule
+        User & Scope \\
+        \midrule
+        Controller\_Read & API commands retrieving data \\
+        Controller\_Write & API commands writing data \\
+        Admin\_Read & Web management reading system status \\
+        Admin\_Write & Web management database modifications \\
+        Root & Full permission base user \\
+        \bottomrule
+    \end{tabular}
+\end{databaseTable}
+\vspace{-1em}
+\begin{table}[H]
+    \centering
+    \setlength{\tabcolsep}{18pt}
+    \renewcommand{\arraystretch}{1.5}
+    \caption{Overview of Databases}
+    \label{table: database_overview}
+    \begin{tabular}{l l l l}
+        \toprule
+        Database & Write Users & Read Users & Purpose \\
+        \midrule
+        Admin\_Utility & Admin & Admin & System Configuration \\
+        Controller\_Utility & Controllers & Controllers & Configuration Data \\
+        Logging & Controllers & Controllers, Admin & Usage Record \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\subsection{Table Layout}
+
+\begin{databaseTable}
+    \begin{tabular}{l c l}
+        \multicolumn{3}{c}{\textbf{Admin\_Utility}} \\
+        \toprule
+        Table & Fields & Purpose \\
+        \cmidrule(lr){1-3}
+        assignments & controller\_id, device\_id & Associate controllers with devices \\
+        blocked\_users & id, time, administrator, reason & Block trained users from system access \\
+        devices & id, name, settings & Set configuration for each machine \\
+        users & allowed\_device\_id & Give users access to specific machines \\
+        \bottomrule \\
+        \multicolumn{3}{c}{\textbf{Logging}} \\
+        \toprule
+        Table & Fields & Purpose \\
+        \cmidrule(lr){1-3}
+        log & time. controller\_id, device\_id, user, event & Record system usage and actions \\
+        \bottomrule
+    \end{tabular}
+    \caption{Table Definitions}
+    \label{table: table_defs}
+\end{databaseTable}
+
+\subsection{View Layout}
+
+\begin{databaseTable}
+    \setlength{\tabcolsep}{16pt}
+    \begin{tabular}{l c l}
+        \multicolumn{3}{c}{\textbf{Admin\_Utility}} \\
+        \toprule
+        View & Databases Used & Purpose \\
+        \cmidrule(lr){1-3}
+        auth\_failures & Logging, \hspace{0.1em} Admin\_Utility & Record of rejected accesses \\
+        recent\_auth\_failures & Admin\_Utility & Rejected within past 24 hours \\
+        repeat\_recent\_auth\_failures & Admin\_Utility & Times rejected in past 24 hours \\
+        recent\_events & Logging, \hspace{0.1em} Admin\_Utility & Most recent event for per device \\
+        \bottomrule \\
+        \multicolumn{3}{c}{\textbf{Controller\_Utility}} \\
+        \toprule
+        View & Databases Used & Purpose \\
+        \cmidrule(lr){1-3}
+        allowed\_users & Logging, \hspace{0.1em} Admin\_Utility & User authorization testing \\
+        pi\_settings & Admin\_Utility & Getting setup for assigned device \\
+        \bottomrule
+    \end{tabular}
+    \caption{View Definitions}
+    \label{table: view_defs}
+\end{databaseTable}

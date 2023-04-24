@@ -1,0 +1,20 @@
+\subsection{Implementation}
+The website is constructed using \lref{https://www.php.net/}{PHP 8.1} on \lref{https://httpd.apache.org/}{Apache}, \lref{https://www.php.net/manual/en/book.mysqli.php}{mysqli}, and \lref{https://developers.google.com/chart/}{Google Charts} through \lref{https://developer.mozilla.org/en-US/docs/Web/JavaScript}{JavaScript}.
+The development version is a docker image run inside the WebInterface docker compose project.
+The files in \bashline{server/html} in the WebInterface repository can be copied to a host for deployment.
+
+\subsection{Authentication}
+All website pages are protected by Shibboleth (the development version uses generic .htaccess files).
+Access to the database is controlled through locally stored credentials.
+It is assumed that any user with access to the underlying environment,
+    or can log into the webpage,
+    should be given full control of the system and access to all secrets.
+The two users constructed for interacting with the database are to protect against bugs,
+    not to act as a protective measure.
+
+\subsection{Functionality}
+The website has full admin access to the database.
+All actions are built upon a consistent main display page that is meant for desktop use.
+Administrative changes (i.e. blocking a user) are performed through PHP form submissions.
+Live data graphs are constructed through continuous JavaScript actions.
+Any SQL commands outside of the prebuilt set should be performed with a separate MariaDB interactive client.

@@ -1,0 +1,117 @@
+% BOM table formatting
+\newcolumntype{I}{m{0.45\textwidth}}
+\newcolumntype{Q}{>{\centering\arraybackslash}m{0.075\textwidth}}
+\newcolumntype{L}{m{0.25\textwidth}}
+\newenvironment{bomTable}
+    { \begin{center}
+        \setlength{\tabcolsep}{24pt}
+        \begin{tabular}{@{\hspace{2em}} I Q L @{}} }
+    { \end{tabular}\end{center} \vspace{1em} }
+
+%\hl{Part numbers and order information can be found in the Senior Design Order form document.}
+
+%\hl{Add part numbers to this part of the documentation (instead of links?!) }
+Full BOM and cost breakdown can be found \lref{https://docs.google.com/spreadsheets/d/1I3pgFnPUj8xgdaECBA7j94ydT4JwhcCwujzxo4dt6PY/edit\#gid=97521878}{here}.\\
+
+\subsection{Main Components}
+%\hl {\textbf{Note: }Asterisks where the link needs to be (*********) means that I either need to find the link or do not have the link currently. There should be none of these in the final draft!}
+
+\begin{bomTable}
+	Item & Quantity & Link\\
+	\toprule
+	Raspberry Pi Model 3B & 1 & \lref{https://www.raspberrypi.com/products/raspberry-pi-3-model-b-plus/}{Raspberry Pi Website}\\
+	Key Card Swipe Reader & 1 & \lref{https://www.amazon.com/dp/B0BHYXL8VB}{Amazon Link}\\ 
+	Main PCB & 1 & N/A\\
+	Auxiliary PCB & 1 & N/A\\
+	Waveshare 4" HDMI Display & 1 & \lref{https://www.amazon.com/HDMI-LCD-Resolution-Resistive-Screen/dp/B07P5H2315/}{Amazon Link}\\ 
+	Enclosure Bottom Piece & 1 & 3D Printed\\ 
+	Enclosure Wall Piece & 1 & 3D Printed\\ 
+	Enclosure Top Plate & 1 & 3D Printed\\ 
+	Enclosure Buzzer Funnel & 1 & 3D Printed\\
+	40mm Fan Filter & 2 & \lref{https://www.digikey.com/en/products/detail/orion-fans/GRM40-30/2621295}{Digikey Link}\\
+	Buzzer & 1 & \lref{https://www.mouser.com/ProductDetail/CUI-Devices/CCG-1206}{Mouser Link}\\
+	Relay Controller & 1 & N/A\\ 
+\end{bomTable}
+
+\begin{bomTable}
+	Optional Item & Quantity & Link\\
+	\toprule
+	40mm 5v Fan & 1 & \lref{https://www.amazon.com/WINSINN-Brushless-Cooling-Extruder-Makerbot/dp/B07KRSJVP7}{Amazon Link}\\ 
+\end{bomTable}
+
+\subsection{PCB Components}
+\subsub{Main PCB}
+\begin{bomTable}
+	Item & Quantity & Link\\
+	\toprule
+	TS3USB221RCR Multiplexor IC & 1 & \lref{https://www.digikey.com/en/products/detail/texas-instruments/TS3USB221DRCR/1258254}{Digikey Link}\\
+	%\hl{(Would Recommend Purchasing Elsewhere)}\\
+	LCA110 Opto Isolator & 3 & \lref{https://www.digikey.com/en/products/detail/ixys-integrated-circuits-division/LCA110/203107}{Digikey Link}\\
+	0805 470$\Omega$ Resistor & 3 & \lref{https://www.digikey.com/en/products/detail/bourns-inc/CR0805-JW-471ELF/3785327}{Digikey Link}\\
+	0805 0.1$\mu$f Capacitor & 1 & \lref{https://www.digikey.com/en/products/detail/nextgen-components/0805B104K500BD/15776052}{Digikey Link}\\
+	2x20 Female GPIO Header & 1 & \lref{https://www.mouser.com/ProductDetail/Adafruit/2222}{Mouser Link}\\ 
+	2 pin 1.50mm JST-XH Right Angle Connector & 2 & \lref{https://www.digikey.com/en/products/detail/jst-sales-america-inc/S2B-ZR-LF-SN/926576}{Digikey Link}\\
+	7 pin 1.50mm JST-XH Right Angle Connector & 1 & \lref{https://www.digikey.com/en/products/detail/jst-sales-america-inc/S7B-ZR-LF-SN/926581}{Digikey Link}\\
+	USB Type A Female Right Angle Connector & 1 & \lref{https://www.digikey.com/en/products/detail/allied-components-international/AUSB1-4600/14321121}{Digikey Link}\\
+	USB Type B Female Right Angle Connector & 1 & \lref{https://www.digikey.com/en/products/detail/switchcraft-inc/RAHPCUB20/17372468}{Digikey Link}\\
+\end{bomTable}
+
+\begin{bomTable}
+	Optional Item & Quantity & Link\\
+	\toprule
+	PCB Stencil & 1 & Highly Recommended!\\
+	0805 LED Red & 1 & \lref{https://www.digikey.com/en/products/detail/osram-opto-ams-osram/LS-R976-NR-1/1227987}{Digikey Link}\\
+	0805 LED Blue & 2 & \lref{https://www.digikey.com/en/products/detail/liteon/LTST-C170TBKT/388527}{Digikey Link}\\
+	0805 LED Green & 1 & \lref{https://www.digikey.com/en/products/detail/liteon/LTST-C171GKT/386793}{Digikey Link}\\
+	0805 0$\Omega$ Jumper Resistor & 4 & \lref{https://www.digikey.com/en/products/detail/stackpole-electronics-inc/RMCF0805ZT0R00/1756901}{Digikey Link}\\
+	0805 110$\Omega$ Resistor & 4 & \lref{https://www.digikey.com/en/products/detail/bourns-inc/CR0805-JW-111ELF/3785219}{Digikey Link}\\
+	2 pin 1.50mm JST-XH Right Angle Connector & 2 & \lref{https://www.digikey.com/en/products/detail/jst-sales-america-inc/S2B-ZR-LF-SN/926576}{Digikey Link}\\
+	2 pin 2.54mm JST-XH right angle connector & 1 & \lref{https://www.digikey.com/en/products/detail/jst-sales-america-inc/S2B-XH-A-1-LF-SN/9961922}{Digikey Link}\\
+    %\lref{https://www.digikey.com/en/products/detail/jst-sales-america-inc/S2B-XH-A-1-LF-SN/9961922}{\hl{Digikey Link}}\\ 
+\end{bomTable}
+
+\subsub{Auxiliary PCB}
+\begin{bomTable}
+	Item & Quantity & Link\\
+	\toprule
+	12mm Omicron Tactile Switch & 1 & \lref{https://www.mouser.com/ProductDetail/Omron-Electronics/B3F-5050}{Mouser Link}\\
+	Red Push Button Cap & 1 & \lref{https://www.mouser.com/ProductDetail/Omron-Electronics/B32-1380}{Mouser Link}\\
+	Right Angle Tact Switch & 1 & \lref{https://www.digikey.com/en/products/detail/e-switch/TL1105VF160Q/378974}{Digikey Link}\\
+	0805 LED Red & 1 & \lref{https://www.digikey.com/en/products/detail/osram-opto-ams-osram/LS-R976-NR-1/1227987}{Digikey Link}\\
+	0805 LED Blue & 2 & \lref{https://www.digikey.com/en/products/detail/liteon/LTST-C170TBKT/388527}{Digikey Link}\\
+	0805 LED Green & 1 & \lref{https://www.digikey.com/en/products/detail/liteon/LTST-C171GKT/386793}{Digikey Link}\\
+	0805 110$\Omega$ Resistor & 4 & \lref{https://www.digikey.com/en/products/detail/bourns-inc/CR0805-JW-111ELF/3785219}{Digikey Link}\\
+	7 pin 1.50mm JST-XH Right Angle Connector & 1 & \lref{https://www.digikey.com/en/products/detail/jst-sales-america-inc/S7B-ZR-LF-SN/926581}{Digikey Link}\\
+\end{bomTable}
+
+\subsection{Relay Components}
+\begin{bomTable}
+	Item & Quantity & Link\\
+	\toprule
+	Solid State Relay & 1 & \lref{https://www.amazon.com/SSR-25DD-3-32VDC-Output-5-240VDC-Plastic/dp/B08GNSPCND}{Amazon Link}\\
+	\\
+\end{bomTable}
+
+\subsection{Connecting Items}
+\begin{bomTable}
+	Item & Quantity & Link\\
+	\toprule
+	FPC Flat Flex HDMI Cable & 1 &
+	\lref{https://www.amazon.com/Cablecc-Angled-Multicopter-Aerial-Photography/dp/B07R6CWPH1/}{Amazon Link}\\
+	Right angle USB connectors & 1 & \lref{https://www.amazon.com/gp/product/B073GTBQ8V/}{Amazon Link}\\
+	%\hl{USB Cables}\\
+	Ethernet Cable & 1 & From Department\\
+	Micro USB Power Supply & 1 & From Department\\ 
+	Micro USB Male to USB Type A male Cable & 1 & From Department\\
+	USB Type B male to USB type A male cable & 2 & From Department\\
+	%\hl{JST Cables}\\ 
+	7 pin male to male 1.50mm JST Cable & 1  & \lref{https://www.digikey.com/en/products/detail/jst-sales-america-inc/A07ZR07ZR28H102A/9972189}{Digikey Link}\\
+	2 pin male to male 1.50mm JST Cable & 2 & \lref{https://www.digikey.com/en/products/detail/jst-sales-america-inc/A02ZR02ZR28H305B/6009417}{Digikey Link}\\ 
+	4mm M2.5 screws & 4 & \lref{https://www.mcmaster.com/92000A102}{McMaster}\\
+    12mm M2.5 screws & 8 & \lref{https://www.mcmaster.com/92005A075/}{McMaster}\\
+	M2.5 hex standoffs &2 & \lref{https://www.mcmaster.com/95947A007}{McMaster}\\
+	M2.5 Heat-Set inserts & 8 & \lref{https://www.mcmaster.com/94180A321}{McMaster}\\
+	M3 security screws & 8 & \lref{https://www.mcmaster.com/91870A306/}{McMaster}\\
+	M3 Heat-Set inserts & 8 & \lref{https://www.mcmaster.com/94180A333}{McMaster}\\
+\end{bomTable}
+\vspace{1em}
